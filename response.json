@@ -1,0 +1,74 @@
+{
+    "data": [
+        {
+            "id": 40,
+            "industry_id": 6,
+            "name": "Cummins"
+        },
+        {
+            "id": 41,
+            "industry_id": 6,
+            "name": "Detroit Diesel"
+        },
+        {
+            "id": 50,
+            "industry_id": 6,
+            "name": "Eaton"
+        },
+        {
+            "id": 53,
+            "industry_id": 6,
+            "name": "Hino"
+        },
+        {
+            "id": 42,
+            "industry_id": 6,
+            "name": "International"
+        },
+        {
+            "id": 47,
+            "industry_id": 6,
+            "name": "Isuzu"
+        },
+        {
+            "id": 51,
+            "industry_id": 6,
+            "name": "Mack"
+        },
+        {
+            "id": 48,
+            "industry_id": 6,
+            "name": "Mercedes-Benz"
+        },
+        {
+            "id": 52,
+            "industry_id": 6,
+            "name": "Mitsubishi"
+        },
+        {
+            "id": 54,
+            "industry_id": 6,
+            "name": "PACCAR"
+        },
+        {
+            "id": 55,
+            "industry_id": 6,
+            "name": "Volvo"
+        }
+    ],
+    "links": {
+        "first": "https:\/\/api-dieseldocs.com\/api\/v1\/make?page=1",
+        "last": "https:\/\/api-dieseldocs.com\/api\/v1\/make?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "path": "https:\/\/api-dieseldocs.com\/api\/v1\/make",
+        "per_page": 300,
+        "to": 11,
+        "total": 11
+    }
+}

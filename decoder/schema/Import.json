@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VIN Decoder Imported Data Schema",
+  "definitions": {
+    "PositiveInteger": {
+      "oneOf": [
+        { "type": "string", "pattern": "^\\d+$" },
+        { "type": "integer", "minimum": 1 }
+      ]
+    },
+
+    "VINPosition": {
+      "oneOf": [
+        { "type": "string", "pattern": "^(?:[1-9]|1[0-7])$" },
+        { "type": "integer", "minimum": 1, "maximum": 17 }
+      ]
+    },
+
+    "NullableVinPosition": {
+      "oneOf": [
+        { "type": "string", "pattern": "^(?:[1-9]|1[0-7])?$" },
+        { "type": "integer", "minimum": 1, "maximum": 17 }
+      ]
+    },
+
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "CodedValueStringCollection": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Code" },
+      "minItems": 1
+    },
+
+    "Code": {
+      "oneOf": [
+        { "$ref": "#/definitions/NonEmptyString" },
+        { "type": "null" }
+      ]
+    },
+
+    "CodedValues": {
+      "oneOf": [
+        { "$ref": "#/definitions/CodedValueStringCollection" },
+        { "$ref": "#/definitions/Code" }
+      ]
+    },
+
+    "SectionRow": {
+      "type": "object",
+      "required": [ "CodedValues", "DecodedValues" ],
+      "properties": {
+        "CodedValues": { "$ref": "#/definitions/CodedValues" },
+        "DecodedValues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+
+    "Section": {
+      "type": "object",
+      "required": [ "StartPos", "EndPos", "Rows", "Headers" ],
+      "properties": {
+        "StartPosWhen": { "$ref": "#/definitions/NullableVinPosition" },
+        "EndPosWhen": { "$ref": "#/definitions/NullableVinPosition" },
+        "StartPos": { "$ref": "#/definitions/VINPosition" },
+        "EndPos": { "$ref": "#/definitions/VINPosition" },
+        "AlwaysWhen": {
+          "type": "string"
+        },
+        "ValuesOrRange": {
+          "type": "string"
+        },
+        "Headers": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/NonEmptyString" },
+          "minItems": 1
+        },
+        "Rows": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/SectionRow" },
+          "minItems": 1
+        }
+      }
+    },
+
+    "Year": {
+      "oneOf": [
+        { "type": "integer", "minimum": 1980, "maximum": 2039 },
+        { "type": "string", "pattern": "^[12]\\d{3}$" },
+        { "type": "null" }
+      ]
+    }
+  },
+  "type": "object",
+  "required": [ "YearLesser", "YearGreater", "Sections", "Manufacturer" ],
+  "properties": {
+    "YearLesser": { "$ref": "#/definitions/Year" },
+    "YearGreater": { "$ref": "#/definitions/Year" },
+    "Manufacturer": {
+      "oneOf": [
+        { "$ref": "#/definitions/PositiveInteger" },
+        { "type": "null" }
+      ]
+    },
+    "Sections" : {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Section" },
+      "minItems": 1
+    }
+  }
+}

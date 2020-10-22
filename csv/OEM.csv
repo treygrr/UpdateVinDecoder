@@ -1,0 +1,79 @@
+﻿Copy From OEM,Year From,Year To,Copy From Model,Copy To OEM,Year From,Year To,Copy To Model
+Cummins,2010,2012,ISX15 CM2250,Cummins,2010,2012,ISL9 CM2250
+Cummins,2010,2012,ISX15 CM2250,Cummins,2010,2012,ISB6.7 CM2250
+Cummins,2010,2012,ISX15 CM2250,Cummins,2010,2012,ISX11.9 CM2250
+Cummins,2010,2012,ISX15 CM2250,Cummins,2010,2012,ISX12 CM2250
+Cummins,2010,2012,ISX15 CM2250,Cummins,2010,2012,ISC8.3 CM2250
+Cummins,2010,2012,ISX15 CM2250,Paccar,2010,2012,PX-6 CM2250
+Cummins,2010,2012,ISX15 CM2250,Paccar,2010,2012,PX-8 CM2250
+Cummins,2007,2009,ISL CM2150,Cummins,2007,2009,ISB CM2150
+Cummins,2007,2009,ISL CM2150,Cummins,2007,2009,ISC CM2150
+Cummins,2007,2009,ISL CM2150,Cummins,2007,2009,ISB6.7 CM2150
+Cummins,2007,2009,ISL CM2150,Paccar,2007,2009,PX-6 CM2150
+Cummins,2007,2009,ISL CM2150,Paccar,2007,2009,PX-8 CM2150
+Cummins,2003,2006,ISB CM850,Cummins,2003,2006,ISC CM850
+Cummins,2003,2006,ISB CM850,Cummins,2003,2006,ISL CM850
+Cummins,2007,2009,ISM CM876,Cummins,2007,2009,ISX CM871
+Cummins,2013,2017,ISB6.7 CM2350,Paccar,2013,2017,PX-7 CM2350
+Cummins,1999,2002,ISM CM570,Cummins,2003,2006,ISM CM870
+Cummins,1998,2002,ISC CM554,Cummins,1999,2002,ISL CM554
+Cummins,1990,1994,M11 CELECT,Cummins,1990,1994,N14 CELECT
+Cummins,1999,2002,ISX CM570,Cummins,1999,2002,Signature CM570
+Cummins,2013,2017,ISL9 CM2350,Paccar,2013,2017,PX-9 CM2350
+Cummins,1995,1998,M11 CELECT Plus,Cummins,1995,1998,N14 CELECT Plus
+Detroit,2017,NEWER,DD13 GHG17,Detroit,2017,NEWER,DD15 GHG17
+Detroit,2017,NEWER,DD13 GHG17,Detroit,2017,NEWER,DD13 GHG17
+Detroit,2007,2009,DD13 EPA07,Detroit,2007,2009,DD15 EPA07
+Detroit,2007,2009,DD13 EPA07,Detroit,2007,2009,DD16 EPA07
+Detroit,2010,2013,DD13 EPA10 (2010-13),Detroit,2010,2013,DD15 EPA10 (2010-13)
+Detroit,2010,2013,DD13 EPA10 (2010-13),Detroit,2010,2013,DD16 EPA10 (2010-13)
+Detroit,2014,2016,DD13 GHG14,Detroit,2014,2016,DD15 GHG14
+Detroit,2014,2016,DD13 GHG14,Detroit,2014,2016,DD16 GHG14
+Mack,2004,2006,All Engines,Volvo,2004,2006,All Engines
+International,2010,NEWER,MaxxForce 11,International,2010,NEWER,MaxxForce 13
+International,2010,NEWER,MaxxForce 11,Caterpillar,2011,2015,CT11
+International,2010,NEWER,MaxxForce 11,Caterpillar,2011,2015,CT13
+International,2007,2009,MaxxForce 11 (2007 - 09) ,International,2007,2009,MaxxForce 13 (2007-09)
+International,2007,2009,MaxxForce 9 (2007-09),International,2007,2009,MaxxForce 10
+International,2007,2009,MaxxForce 9 (2007-09),International,2007,2009,MaxxForce DT
+International,2010,NEWER,MaxxForce 9,International,2010,NEWER,MaxxForce 10
+International,2010,NEWER,MaxxForce 9,International,2010,NEWER,MaxxForce DT
+International,2004,2006,DT466,International,2004,2006,DT530
+International,2004,2006,DT466,International,2004,2006,DT570
+International,2004,2006,DT466,International,2004,2006,HT570
+International,2000,2003,DT466,International,2000,2003,DT530
+International,1990,1999,DT466E,International,1990,1999,DT530E
+International,2014,2016,N9,International,2014,2016,N10
+Caterpillar,1995,2020,C15 (Prefix SDP),Caterpillar,1995,2020,C13 (Prefix LEE)
+Caterpillar,1995,2020,3126B,Caterpillar,1995,2020,3126E (Prefix DPF)
+Caterpillar,1995,2020,3126B,Caterpillar,1995,2020,3126E (Prefix HEP) 
+Caterpillar,1995,2020,3126B,Caterpillar,1995,2020,3126E (Prefix LEF)
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,C7 (Prefix KAL or SAP1-3955)
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,"C7 (Prefix LBM, NPH, WAX, or SAP3956-UP)"
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,C7 (Prefix YPG or C7T)
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,C9 (Prefix 6PZ or 7JZ)
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,C9 (Prefix ETK or 9DF6040-UP)
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,C9 (Prefix MFF)
+Caterpillar,1995,2020,"C7 (Prefix FML, FMM, JRT, or RMF)",Caterpillar,1995,2020,C9 (Prefix MTB)
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,C10 (Prefix 3CS)
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,C10 (Prefix MBJ)
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,"C12 (Prefix 2KS, CPD or 8YF)"
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,C12 (Prefix MBL)
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,"C15 (Prefix 6NZ, 9NZ, or EGH)"
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,C15 (Prefix MBN)
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,C16 (Prefix 7CZ)
+Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,"C18 (Prefix CJP, MDP, or MEP)"
+Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix JAM)
+Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix KCA)
+Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix KCB)
+Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C15 (Prefix BXS)
+Caterpillar,1995,2020,3406E (Prefix 5EK or 6TS),Caterpillar,1995,2020,C10 (Prefix 2PN)
+Caterpillar,1995,2020,3406E (Prefix 5EK or 6TS),Caterpillar,1995,2020,C12 (Prefix 1YN)
+Caterpillar,1995,2020,3406E (Prefix 5DS or 1LW),Caterpillar,1995,2020,C12 (Prefix 9NS)
+Caterpillar,1995,2020,3406E (Prefix 5DS or 1LW),Caterpillar,1995,2020,C10 (Prefix 8YS)
+Caterpillar,1995,2020,C7 (Prefix C7S),Caterpillar,1995,2020,C9 (Prefix C9S)
+Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EN3)
+Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EP3)
+Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage ( FAM-XX810B-EA3)
+Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAO-XX810C-EA3)
+Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810C-EA3)
