@@ -35,7 +35,7 @@ International,2010,NEWER,MaxxForce 11,Caterpillar,2011,2015,CT11
 International,2010,NEWER,MaxxForce 11,Caterpillar,2011,2015,CT13
 International,2007,2009,MaxxForce 11 (2007 - 09) ,International,2007,2009,MaxxForce 13 (2007-09)
 International,2007,2009,MaxxForce 9 (2007-09),International,2007,2009,MaxxForce 10
-International,2007,2009,MaxxForce 9 (2007-09),International,2007,2009,MaxxForce DT
+International,2007,2009,MaxxForce 9 (2007-09),International,2007,2009,MaxxForce DT (2007-09)
 International,2010,NEWER,MaxxForce 9,International,2010,NEWER,MaxxForce 10
 International,2010,NEWER,MaxxForce 9,International,2010,NEWER,MaxxForce DT
 International,2004,2006,DT466,International,2004,2006,DT530
@@ -65,7 +65,7 @@ Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,C16 (Prefi
 Caterpillar,1995,2020,3406E (Prefix 1MM or 2WS),Caterpillar,1995,2020,"C18 (Prefix CJP, MDP, or MEP)"
 Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix JAM)
 Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix KCA)
-Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix KCB)
+Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C13 (Prefix KCB) 
 Caterpillar,1995,2020,C11 (Prefix KCA),Caterpillar,1995,2020,C15 (Prefix BXS)
 Caterpillar,1995,2020,3406E (Prefix 5EK or 6TS),Caterpillar,1995,2020,C10 (Prefix 2PN)
 Caterpillar,1995,2020,3406E (Prefix 5EK or 6TS),Caterpillar,1995,2020,C12 (Prefix 1YN)
@@ -74,6 +74,6 @@ Caterpillar,1995,2020,3406E (Prefix 5DS or 1LW),Caterpillar,1995,2020,C10 (Prefi
 Caterpillar,1995,2020,C7 (Prefix C7S),Caterpillar,1995,2020,C9 (Prefix C9S)
 Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EN3)
 Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EP3)
-Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage ( FAM-XX810B-EA3)
+Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAM-XX810B-EA3)
 Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAO-XX810C-EA3)
 Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810S-EC3),Eaton,2017,NEWER,Fuller Advantage (FAOM-XX810C-EA3)
