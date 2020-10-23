@@ -62,36 +62,35 @@ parseCSV(fileImport.toString('utf-8'), {
             console.log('These bitches mis match.', ' From: ',FromDataArticles.length, ' To: ', ToDataArticles.length);
             return;
         }
-
     
         let counter = 1;
 
         let articleCount = FromDataArticles.length;
         for (counter; counter < articleCount; counter++) {
             totalUpdatedRecords++;
-
             let curFrom = FromDataArticles[counter];
-            let curTo = ToDataArticles[counter];
+            let counterTo = 0;
+            for (counterTo; counterTo < ToDataArticles.length; counterTo++) {
+                let curTo = ToDataArticles[counterTo];
+                if (curTo.fault1 != curFrom.fault1) continue;
+                if (curTo.fault2 != curFrom.fault2) continue;
+                if (curTo.pid    != curFrom.pid) continue;
+                if (curTo.sid    != curFrom.sid) continue;
+                if (curTo.ppid   != curFrom.ppid) continue;
+                if (curTo.psid   != curFrom.psid) continue;
+                if (curTo.spn    != curFrom.spn) continue;
+                if (curTo.fmi    != curFrom.fmi) continue;                          
+                let FromAttachmentData = await GetArticleAttachmentData(curFrom.id).then(res => res.rows[0]);
+                if (FromAttachmentData === undefined) {
+                    skippedArticleCount++;
+                    continue;
+                }
+                await PutArticleData(curTo.id, FromAttachmentData);
+                UpdateConsoleProgress(lineNumber, check, counter, articleCount, totalUpdatedRecords, curFrom.id, skippedArticleCount);
+                }
             
             // This was supposed to filter but all the articles don't have matching codes so...
-        
-            // if (curTo.fault1 != curFrom.fault1) return;
-            // if (curTo.fault2 != curFrom.fault2) return;
-            // if (curTo.pid    != curFrom.pid) return;
-            // if (curTo.sid    != curFrom.sid) return;
-            // if (curTo.ppid   != curFrom.ppid) return;
-            // if (curTo.psid   != curFrom.psid) return;
-            // if (curTo.spn    != curFrom.spn) return;
-            // if (curTo.fmi    != curFrom.fmi) return;
-          
-            let FromAttachmentData = await GetArticleAttachmentData(curFrom.id).then(res => res.rows[0]);
-            if (FromAttachmentData === undefined) {
-                skippedArticleCount++;
-                continue;
             }
-            await PutArticleData(curTo.id, FromAttachmentData);
-            UpdateConsoleProgress(lineNumber, check, counter, articleCount, totalUpdatedRecords, curFrom.id, skippedArticleCount);
-        }
     } 
     exit();
 });  
@@ -155,5 +154,5 @@ const PutArticleData = async (ArticleID, payload) => {
 const UpdateConsoleProgress =  (LineSet, check, Progress, TotalProgress, totalUpdatedRecords, currentModelFrom, skippedArticleCount) => {
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
-    process.stdout.write(`Working on Model ${LineSet} of ${check}. Updating Article ${Progress} of ${TotalProgress}. Total Article Attachments Generated: ${totalUpdatedRecords} Elapsed Time: ${startTimer.getValue()} Current Articled From:  ${currentModelFrom} Skipped Articles: ${skippedArticleCount}`);
+    process.stdout.write(`Working on Model ${LineSet+1} of ${check} | Updating Article ${Progress+1} of ${TotalProgress} | Total Article Attachments Generated: ${totalUpdatedRecords} | Elapsed Time: ${startTimer.getValue()} | Skipped Articles: ${skippedArticleCount}`);
 }
