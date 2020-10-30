@@ -31,7 +31,10 @@ parseCSV(fileImport.toString('utf-8'), {
     let totalUpdatedRecords = 0;
     let check = records.length;
     let skippedArticleCount = 0;
+    let currentFromFail = {}
+
     for (lineNumber; lineNumber < check; lineNumber++) {
+
         // console.log('current Line: ', lineNumber, 'Data: ', 
         // records[lineNumber].FromModel, records[lineNumber].FromYearFrom, records[lineNumber].FromYearTo === 'NEWER'? 0: records[lineNumber].FromYearTo,
         // records[lineNumber].ToModel, records[lineNumber].ToYearFrom, records[lineNumber].ToYearTo === 'NEWER'? 0: records[lineNumber].ToYearTo
@@ -43,7 +46,7 @@ parseCSV(fileImport.toString('utf-8'), {
         })
         .catch(function (res) {
             console.log(res);  
-        });
+        });  
 
         let ToData = await GetArticleIDTo(records[lineNumber].ToModel, records[lineNumber].ToYearFrom, records[lineNumber].ToYearTo === 'NEWER'? 0: records[lineNumber].ToYearTo)
         .then(function (res) {
@@ -51,7 +54,7 @@ parseCSV(fileImport.toString('utf-8'), {
             return res.rows
         })
         .catch(function (res) {
-            console.log(res); 
+            console.log(res);
         });
 
         let FromDataArticles = await GetAssociatedArticlesByID(FromData[0].id).then(res=>res.rows).catch(err=>console.log(err));
@@ -59,17 +62,17 @@ parseCSV(fileImport.toString('utf-8'), {
         let ToDataArticles = await GetAssociatedArticlesByID(ToData[0].id).then(res=>res.rows).catch(err=>console.log(err));
         // console.log(ToDataArticles);
         if ( FromDataArticles.length != ToDataArticles.length){
-            console.log('These bitches mis match.', ' From: ',FromDataArticles.length, ' To: ', ToDataArticles.length);
+            console.log('These mis match.', ' From: ',FromDataArticles.length, ' To: ', ToDataArticles.length);
             return;
         }
     
         let counter = 1;
-
+        let failedArticles = [];
         let articleCount = FromDataArticles.length;
         for (counter; counter < articleCount; counter++) {
-            totalUpdatedRecords++;
             let curFrom = FromDataArticles[counter];
             let counterTo = 0;
+            totalUpdatedRecords++;
             for (counterTo; counterTo < ToDataArticles.length; counterTo++) {
                 let curTo = ToDataArticles[counterTo];
                 if (curTo.fault1 != curFrom.fault1) continue;
@@ -81,23 +84,35 @@ parseCSV(fileImport.toString('utf-8'), {
                 if (curTo.spn    != curFrom.spn) continue;
                 if (curTo.fmi    != curFrom.fmi) continue;                          
                 let FromAttachmentData = await GetArticleAttachmentData(curFrom.id).then(res => res.rows[0]);
+
                 if (FromAttachmentData === undefined) {
+                    // console.log(curFrom.id)
+                    failedArticles.push(curFrom.id);
                     skippedArticleCount++;
                     continue;
                 }
+
                 await PutArticleData(curTo.id, FromAttachmentData);
+                CopyFile(curFrom.id, curTo.id, FromAttachmentData.file_name);
                 UpdateConsoleProgress(lineNumber, check, counter, articleCount, totalUpdatedRecords, curFrom.id, skippedArticleCount);
-                }
-            
-            // This was supposed to filter but all the articles don't have matching codes so...
+                
             }
+            if (failedArticles.length) currentFromFail[records[lineNumber].FromModel] = failedArticles; 
+
+
+            // This was supposed to filter but all the articles don't have matching codes so... 
+            }
+            failedArticles = []
     } 
+    fs.writeFileSync(`FailedAttemps.text`, JSON.stringify(currentFromFail))
+    // console.log(currentFromFail);
     exit();
+
 });  
 
 
 const GetArticleIDFrom = async (FromModel, FromYearFrom, FromYearTo) => {
-    let result =  await pg.query(`SELECT id FROM models_pg where name = '${FromModel}' and year_from = ${FromYearFrom} and year_to = ${FromYearTo} and status <> 6`)
+    let result =  await pg.query(`SELECT id FROM models_pg where name ilike '%${FromModel}%' and year_from = ${FromYearFrom} and year_to = ${FromYearTo} and status <> 6`)
     if (result.rows.length === 2) {
         //console.log(`SELECT id FROM models_pg where name = '${FromModel}' and year_from = ${FromYearFrom} and year_to = ${FromYearTo} and status <> 6`);
         result.rows = result.rows.splice(0, 1);
@@ -155,4 +170,21 @@ const UpdateConsoleProgress =  (LineSet, check, Progress, TotalProgress, totalUp
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
     process.stdout.write(`Working on Model ${LineSet+1} of ${check} | Updating Article ${Progress+1} of ${TotalProgress} | Total Article Attachments Generated: ${totalUpdatedRecords} | Elapsed Time: ${startTimer.getValue()} | Skipped Articles: ${skippedArticleCount}`);
+}
+
+
+const CopyFile = (fromArticleId, toArticleId, fileName) => {
+    
+//  681752006_attachments
+    console.log(dir)
+    let fromLocation = `${process.cwd()}/Article_Attachments_Old/${fromArticleId}_attachments/${fileName}`
+    let toLocationDir = `${process.cwd()}/Article_Attachments_Updated/${toArticleId}_attachments/`
+    if (!fs.existsSync(toLocationDir)) {
+        fs.mkdirSync(toLocationDir);
+    }
+
+    fs.copyFileSync(fromLocation, toLocationDir + fileName, (err) => {
+        if (err) throw err;
+        console.log(`${fromLocation} copied to: ${toLocation}`);
+    });
 }
