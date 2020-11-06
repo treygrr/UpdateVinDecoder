@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "import": "nodemon --exec babel-node index.js",
-    "copyarticles": "nodemon --exec babel-node CopyAritclesAttachments.js"
+    "copyarticles": "nodemon --exec babel-node CopyAritclesAttachments.js",
+    "getcount": "nodemon --exec babel-node GetCounts.js"
   },
   "author": "",
   "license": "ISC",
