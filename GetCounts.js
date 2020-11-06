@@ -33,6 +33,49 @@ const WriteFile = (fileToWrite, fileName) => {
     fs.writeFileSync(fileName, JSON.stringify(fileToWrite));
 }
 
+const SortArticles = (articles) => {
+    let status1 = 0;
+    let status2 = 0;
+    let status3 = 0;
+    let status4 = 0;
+    let status5 = 0;
+    let status6 = 0;
+    let status7 = 0;
+    let status8 = 0;
+
+    for (const article in articles) {
+        switch (articles[article].status) {
+            case 1:
+                status1++
+                break;
+            case 2:
+                status2++
+                break;
+            case 3: 
+                status3++
+                break;
+            case 4:
+                status4++
+                break;
+            case 5: 
+                status5++
+                break;
+            case 6:
+                status6++
+                break;
+            case 7:
+                status7++
+                break;
+            case 8:
+                status8++
+                break;
+        }
+        
+    }
+    // console.log({status1, status2, status3, status4, status5, status6, status7, status8})
+    return { status1, status2, status3, status4, status5, status6, status7, status8 }
+}
+
 /*
     get models
         foreach models
@@ -57,9 +100,14 @@ const run = async () => {
         let attachements = await GetAttachments(models[model].id).then(res => res.rows[0].count).catch(err => console.log(err));
 
         let modelName = models[model].name.toString();
+        let articlesBreakDown = {}
+
+
+        
 
         dataset[modelName] = {
             "Articles Count: ": articles.length,
+            "Articles Status Count": SortArticles(articles),
             "Attachments Count": attachements
         };
     }
